@@ -15,4 +15,8 @@ data "aws_ami" "latest-linux-ami" {
 resource "aws_instance" "demo-ec2" {
   ami = data.aws_ami.latest-linux-ami.id
   instance_type = "t2.micro"
+  
+  tags = {
+    "Name" = "Terraform Cloud EC2" 
+  }
 }
